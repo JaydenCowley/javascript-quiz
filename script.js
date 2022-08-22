@@ -6,11 +6,21 @@ const answerBtnEl = document.getElementById('answer-buttons');
 
 let currentScore = 0;
 
+const highscores = document.getElementById('high-scores');
 const timerEl = document.getElementById('timer');
-const score = document.getElementById('score')
+const score = document.getElementById('score');
 
 function displayScore(){
-    score.innerText = "Score:" + currentScore
+    score.innerText = "Score: " + currentScore
+}
+function adjustScore(){
+    console.log('hitting')
+    currentScore = currentScore + 1
+}
+
+function endQuiz() {
+    questionContainer.classList.add('hide');
+    highscores.classList.remove('hide');
 }
 
 function timer(){
@@ -20,6 +30,7 @@ function timer(){
         sec--;
         if (sec < 0) {
             clearInterval(timer);
+            endQuiz();
         }
     }, 1000);
 }
@@ -95,7 +106,6 @@ function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
-        currentScore + 1
     } else {
         element.classList.add('wrong')
         
