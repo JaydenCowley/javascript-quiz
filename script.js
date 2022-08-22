@@ -10,6 +10,28 @@ const highscores = document.getElementById('high-scores');
 const timerEl = document.getElementById('timer');
 const score = document.getElementById('score');
 
+const highScoreInputField = document.getElementById('newHighScore')
+const highScoreBtn = document.getElementById('highScoreBtn')
+const scoreList = document.getElementById('score-list')
+
+var highScoreData = []
+highScoreBtn.addEventListener('click', submitHighScore)
+
+function submitHighScore() {
+    highScoreData.push(highScoreInputField.value)
+    scores = {initials: highScoreInputField.value}
+    localStorage.push(scores, JSON.stringify(highScoreData))
+    console.log(highScoreData)
+}
+
+function displayHighScores() {
+    var highScoreData = JSON.parse(localStorage.getItem('highScoreData'))||[]
+    highScoreData.forEach(function(input){
+        var listItem = document.createElement('li')
+        listItem.textContent=input.name
+        scoreList.appendChild(listItem)
+    })
+}
 function displayScore(){
     score.innerText = "Score: " + currentScore
 }
@@ -24,7 +46,7 @@ function endQuiz() {
 }
 
 function timer(){
-    var sec = 30;
+    var sec = 10;
     var timer = setInterval(function(){
         timerEl.innerText='00:'+ sec;
         sec--;
