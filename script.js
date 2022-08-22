@@ -4,7 +4,7 @@ const questionContainer = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerBtnEl = document.getElementById('answer-buttons');
 
-const timerEl = document.getElementById('timer');
+const timerEl = document.getElementsByClassName('timer');
 
 function timer(){
     var sec = 30;
@@ -30,6 +30,7 @@ function startGame() {
     console.log('Game has started');
     timer();
     startBtn.classList.add('hide');
+    timer.classList.remove('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     questionContainer.classList.remove('hide');
     currentQ = 0;

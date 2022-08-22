@@ -69,10 +69,7 @@ body.wrong {
     justify-content: center;
     align-items: center;
 }
-.hide {
-    display: none;
-}
-#timer {
+.timer {
     display: flex;
     justify-content: end;
     padding: 10px 20px;
@@ -81,4 +78,7 @@ body.wrong {
     background-color: aliceblue;
     margin: 20px;
     border-radius: 5px;
+}
+.hide {
+    display: none;
 }
