@@ -72,3 +72,13 @@ body.wrong {
 .hide {
     display: none;
 }
+#timer {
+    display: flex;
+    justify-content: end;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: aliceblue;
+    margin: 20px;
+    border-radius: 5px;
+}

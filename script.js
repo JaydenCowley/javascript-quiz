@@ -2,7 +2,20 @@ const startBtn = document.getElementById('start-btn');
 const nextBtn = document.getElementById('next-btn');
 const questionContainer = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
-const answerBtnEl = document.getElementById('answer-buttons')
+const answerBtnEl = document.getElementById('answer-buttons');
+
+const timerEl = document.getElementById('timer');
+
+function timer(){
+    var sec = 30;
+    var timer = setInterval(function(){
+        timerEl.innerText='00:'+ sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
+}
 
 let shuffledQuestions, currentQ;
 
@@ -15,6 +28,7 @@ nextBtn.addEventListener('click', () => {
 
 function startGame() {
     console.log('Game has started');
+    timer();
     startBtn.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     questionContainer.classList.remove('hide');
