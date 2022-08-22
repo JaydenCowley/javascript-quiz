@@ -8,6 +8,11 @@ let shuffledQuestions, currentQ;
 
 startBtn.addEventListener('click', startGame)
 
+nextBtn.addEventListener('click', () => {
+    currentQ++
+    setNextQuestion();
+})
+
 function startGame() {
     console.log('Game has started');
     startBtn.classList.add('hide');
@@ -39,14 +44,39 @@ function showQuestion(question) {
     });
 }
 function resetState() {
+    clearStatusClass(document.body)
     nextBtn.classList.add('hide')
     while (answerBtnEl.firstChild) {
         answerBtnEl.removeChild
         (answerBtnEl.firstChild)
     }
 }
-function selectAnswer () {
-
+function selectAnswer (e) {
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    // setting the answer buttons to an array so it can cycle through them to check if they are a correct answer or not
+    Array.from(answerBtnEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (shuffledQuestions.length > currentQ + 1){
+        nextBtn.classList.remove('hide')
+    } else {
+        startBtn.innerText = 'Restart'
+        startBtn.classList.remove('hide')
+    }
+}
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
+    }
+}
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
 }
 
 const questions = [
