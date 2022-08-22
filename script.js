@@ -46,7 +46,7 @@ function endQuiz() {
 }
 
 function timer(){
-    var sec = 10;
+    var sec = 15;
     var timer = setInterval(function(){
         timerEl.innerText='00:'+ sec;
         sec--;
