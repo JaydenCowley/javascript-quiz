@@ -19,6 +19,9 @@ This is a quiz about javascript currently it allows for you to answer 5 question
 ## links
 [The Live application](https://jaydencowley.github.io/javascript-quiz/)
 
+## References
+[Web Dev Simplified](https://www.youtube.com/watch?v=riDzcEQbX6k)
+
 ## About me
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://jaydencowley.github.io/Portfolio/)
